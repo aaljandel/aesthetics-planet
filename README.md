@@ -9,4 +9,11 @@ npm install
 npm run dev
 ```
 
-The default production build targets Vercel (`npm run build`). A Cloudflare Workers build is `npm run build:cf` (Nitro `cloudflare_module`).
+## Cloudflare Pages
+
+- Build command: `npm run build:cf`
+- Output directory: `dist`
+
+That command uses the Nitro `cloudflare_pages` preset and writes a Pages worker plus static assets into `dist`. `npm run build` remains the Vercel build.
+
+Photographs are committed as base64 sidecars (`*.b64`). `scripts/materialize-images.mjs` restores the image files before the build.
