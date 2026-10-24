@@ -4,16 +4,20 @@ Sample one-page site for a doctor-led London aesthetic practice in Marylebone an
 
 This is not a real clinic, not medical advice, and not an offer to treat. Telephone numbers use Ofcom’s 020 7946 drama range. Clinicians are fictional.
 
+The treatment catalogue, npm lockfile, and photographs are stored as ordered text parts. Join them before install or build:
+
 ```bash
-npm install
+node scripts/assemble.mjs
+npm ci
 npm run dev
 ```
 
 ## Cloudflare Pages
 
+- Install command: `node scripts/assemble.mjs && npm ci`
 - Build command: `npm run build:cf`
 - Output directory: `dist`
 
-That command uses the Nitro `cloudflare_pages` preset and writes a Pages worker plus static assets into `dist`. `npm run build` remains the Vercel build.
+`build:cf` uses the Nitro `cloudflare_pages` preset and writes the Pages worker and static assets into `dist` (`_worker.js`, `_routes.json`). `npm run build` stays the Vercel build.
 
-Photographs are committed as base64 sidecars (`*.b64`). `scripts/materialize-images.mjs` restores the image files before the build.
+`scripts/assemble.mjs` joins the parts. `scripts/materialize-images.mjs` restores photographs from base64 sidecars.
