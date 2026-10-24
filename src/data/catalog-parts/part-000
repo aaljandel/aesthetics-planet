@@ -1,0 +1,169 @@
+export type StudioId = "wimpole" | "elystan";
+
+export type Category = "neuromodulator" | "filler" | "energy" | "skin" | "body";
+
+export type Treatment = {
+  id: string;
+  name: string;
+  maker: string;
+  category: Category;
+  summary: string;
+  indication: string;
+  how: string;
+  onset: string;
+  lasts: string;
+  downtime: string;
+  sessions: string;
+  reversible: string;
+  from: Record<StudioId, number>;
+  unit: string;
+  pause: string;
+  glabellaUnits?: number;
+  caution?: string;
+  timeline: { at: string; text: string }[];
+};
+
+export const categories: { id: Category | "all"; label: string }[] = [
+  { id: "all", label: "Full menu" },
+  { id: "neuromodulator", label: "Neuromodulators" },
+  { id: "filler", label: "Fillers" },
+  { id: "energy", label: "Energy" },
+  { id: "skin", label: "Skin" },
+  { id: "body", label: "Body" },
+];
+
+export const categoryLabel: Record<Category, string> = {
+  neuromodulator: "Neuromodulator",
+  filler: "Filler & biostimulator",
+  energy: "Energy device",
+  skin: "Skin health",
+  body: "Body",
+};
+
+export const treatments: Treatment[] = [
+  {
+    id: "botox",
+    name: "Botox",
+    maker: "Allergan Aesthetics, an AbbVie company",
+    category: "neuromodulator",
+    summary: "OnabotulinumtoxinA for frown lines, crow’s feet, forehead lines, and platysma bands.",
+    indication:
+      "MHRA-licensed to temporarily improve moderate to severe glabellar lines, lateral canthal lines, and horizontal forehead lines. It is also licensed for moderate to severe platysma bands — the vertical cords in the neck — when they are significant at maximum contraction. The licensed glabellar dose is 20 units across five sites.",
+    how: "Small intramuscular injections relax the muscles that crease the skin. A prescriber sees you face to face before any prescription is written. The medicine is not sold from this page.",
+    onset: "A few days, judged at about two weeks.",
+    lasts: "About 3–4 months for most people.",
+    downtime: "Makeup can usually go back on after a few hours. Skip heavy exercise, rubbing, and lying flat for the rest of the day.",
+    sessions: "Repeat when movement returns. Not a substitute for filler when the issue is lost volume.",
+    reversible: "Not reversible. The effect wears off as nerve endings recover.",
+    from: { wimpole: 14, elystan: 12 },
+    unit: "per unit",
+    pause: "Same day",
+    glabellaUnits: 20,
+    caution:
+      "The MHRA warns that botulinum toxin can spread beyond the injection site and, rarely, cause botulism. That is a medical emergency. Units are not interchangeable with Azzalure, Bocouture, Alluzience, or Letybo.",
+    timeline: [
+      { at: "Day 0", text: "Treatment. Most people go back to ordinary plans, minus a hard workout." },
+      { at: "Days 3–14", text: "Expression softens. The two-week visit is when the result is judged." },
+      { at: "Months 3–4", text: "Movement gradually returns. Retreatment is planned here, not on a fixed calendar." },
+    ],
+  },
+  {
+    id: "azzalure",
+    name: "Azzalure",
+    maker: "Galderma",
+    category: "neuromodulator",
+    summary: "AbobotulinumtoxinA for frown lines and crow’s feet. Some countries know the molecule as Dysport.",
+    indication:
+      "MHRA-licensed for temporary improvement of moderate to severe glabellar lines and lateral canthal lines in adults. The licensed glabellar dose is 50 Speywood units. Those units are not Botox units. A rough clinical conversation sometimes uses about 2.5 Speywood units per 1 Botox unit, but that ratio is not a licence instruction.",
+    how: "Divided across the frown, and across the outer eye when crow’s feet are in the plan. It is a powder, reconstituted in the room. Dysport is not the name on the UK aesthetic vial.",
+    onset: "Often 2–3 days, sometimes sooner.",
+    lasts: "About 3–4 months.",
+    downtime: "Same-day restrictions as other neuromodulators: no rubbing, no strenuous exercise until tomorrow.",
+    sessions: "Glabella and crow’s feet are the licensed cosmetic uses. Other areas, if discussed, are off-licence.",
+    reversible: "Not reversible. It wears off.",
+    from: { wimpole: 5, elystan: 4 },
+    unit: "per Speywood unit",
+    pause: "Same day",
+    glabellaUnits: 50,
+    caution:
+      "Spread of toxin effect can be serious. Azzalure units cannot be swapped 1:1 with Botox, Bocouture, or Letybo.",
+    timeline: [
+      { at: "Day 2", text: "Some people notice the frown easing this early." },
+      { at: "Week 2", text: "Review point if a brow feels heavy or uneven." },
+      { at: "Months 3–4", text: "Typical retreat window." },
+    ],
+  },
+  {
+    id: "bocouture",
+    name: "Bocouture",
+    maker: "Merz Aesthetics",
+    category: "neuromodulator",
+    summary: "IncobotulinumtoxinA, purified without complexing proteins. Some countries call it Xeomin.",
+    indication:
+      "MHRA-licensed for temporary improvement of moderate to severe glabellar lines in adults. The licensed glabellar dose is 20 units.",
+    how: "Sometimes called a “naked” toxin because accessory complexing proteins are removed in manufacturing. The UK aesthetic brand is Bocouture, not Xeomin.",
+    onset: "Several days, full read at two weeks.",
+    lasts: "About 3–4 months.",
+    downtime: "Same day for most social plans.",
+    sessions: "The frown is the licensed cosmetic use. Other areas, if discussed, are off-licence.",
+    reversible: "Not reversible.",
+    from: { wimpole: 13, elystan: 11 },
+    unit: "per unit",
+    pause: "Same day",
+    glabellaUnits: 20,
+    caution: "Spread of toxin effect can be serious. Not interchangeable with other neuromodulators.",
+    timeline: [
+      { at: "Day 0", text: "Five-point glabellar injection. No downtime makeup ban beyond a few hours." },
+      { at: "Week 2", text: "Result is read. A tiny touch-up is a clinical decision, not an automatic add-on." },
+      { at: "Months 3–4", text: "Effect fades." },
+    ],
+  },
+  {
+    id: "alluzience",
+    name: "Alluzience",
+    maker: "Galderma",
+    category: "neuromodulator",
+    summary: "Ready-to-use liquid abobotulinumtoxinA for the frown and crow’s feet, with a longer studied tail.",
+    indication:
+      "MHRA-licensed for moderate to severe glabellar lines and lateral canthal lines in adults. It is the same toxin type as Azzalure, already in solution, so it is not reconstituted in the room. The licensed glabellar dose is 50 Speywood units. It is not Daxxify, a peptide-stabilised toxin licensed in the United States and not the product stocked here.",
+    how: "Drawn from a liquid vial and placed in the frown or the outer eye. Onset is often earlier than a powder toxin. Studies have followed a share of patients out toward six months. A median result is not a guarantee.",
+    onset: "Often within 1–2 days.",
+    lasts: "Many people sit in the usual 3–4 month range. In studies, a portion were still improved closer to six months.",
+    downtime: "Same day.",
+    sessions: "Often planned twice a year rather than three or four, if the longer duration holds for you.",
+    reversible: "Not reversible, and a longer tail means an unwanted brow position also lasts longer.",
+    from: { wimpole: 8, elystan: 7 },
+    unit: "per Speywood unit",
+    pause: "Same day",
+    glabellaUnits: 50,
+    caution:
+      "Speywood units are not Botox units. A 50-unit frown is a different sum from a 20-unit Botox frown, even when the per-unit price looks lower. Spread of toxin effect can be serious.",
+    timeline: [
+      { at: "Day 1–2", text: "Early change is common." },
+      { at: "Week 2", text: "The honest read, including whether the brow feels heavy." },
+      { at: "Months 4–6", text: "Some people are still smoother. Do not assume six months before you have lived one cycle." },
+    ],
+  },
+  {
+    id: "letybo",
+    name: "Letybo",
+    maker: "Croma-Pharma · letibotulinumtoxinA by Hugel",
+    category: "neuromodulator",
+    summary: "LetibotulinumtoxinA, licensed in the UK for frown lines.",
+    indication:
+      "MHRA-licensed for temporary improvement of moderate to severe glabellar lines in adults. The licensed glabellar dose is 20 units.",
+    how: "A 900 kDa-class botulinum toxin type A, placed across five glabellar sites. It is a licensed UK medicine, which is a different thing from an imported vial with a similar box.",
+    onset: "A few days.",
+    lasts: "About 3–4 months.",
+    downtime: "Same day.",
+    sessions: "Glabellar lines are the licensed use.",
+    reversible: "Not reversible.",
+    from: { wimpole: 10, elystan: 9 },
+    unit: "per unit",
+    pause: "Same day",
+    glabellaUnits: 20,
+    caution:
+      "Spread of toxin effect can be serious. The MHRA has seized unlicensed toxins, including some Korean brands, sold outside the legal supply chain. Letybo on this menu means the licensed product only.",
+    timeline: [
+      { at: "Days 2–5", text: "Frown softens." },
+      { at: "Week 2", text: "Photograph and compare with the consult images." },
