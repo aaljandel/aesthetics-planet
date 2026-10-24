@@ -1,0 +1,188 @@
+];
+
+export const signatures: { id: string; name: string; blurb: string; ids: string[] }[] = [
+  {
+    id: "expression",
+    name: "Expression edit",
+    blurb: "Frown, crow’s feet, and forehead on the one toxin licensed for all three.",
+    ids: ["botox"],
+  },
+  {
+    id: "midface-plan",
+    name: "Midface, slowly",
+    blurb: "A collagen stimulator series, with a hyaluronic acid option if you want shape this month.",
+    ids: ["sculptra", "juvederm"],
+  },
+  {
+    id: "surface",
+    name: "Surface year",
+    blurb: "Monthly HydraFacial, plus Volite when texture — not volume — is the actual complaint.",
+    ids: ["hydrafacial", "volite"],
+  },
+  {
+    id: "lift-light",
+    name: "Lift, without an incision",
+    blurb: "Ultrasound for early laxity. Honest about what a surgical lift still does better.",
+    ids: ["sofwave"],
+  },
+];
+
+export const devices: {
+  id: string;
+  name: string;
+  maker: string;
+  fact: string;
+  treatmentId: string;
+}[] = [
+  {
+    id: "superb",
+    name: "SUPERB ultrasound",
+    maker: "Sofwave",
+    fact: "Parallel beams, mid-dermis near 1.5 mm, cooled epidermis. A device mark, not an MHRA medicine licence.",
+    treatmentId: "sofwave",
+  },
+  {
+    id: "heroic",
+    name: "BroadBand Light",
+    maker: "Sciton BBL HEROic",
+    fact: "Filtered light for haemoglobin and melanin. Spots darken, then flake. A tan is a reason to wait.",
+    treatmentId: "bbl",
+  },
+  {
+    id: "gmax",
+    name: "Dual-wavelength hair laser",
+    maker: "Candela GentleMax Pro",
+    fact: "Alexandrite 755 nm and Nd:YAG 1064 nm, with cryogen spray cooling before each pulse.",
+    treatmentId: "gentlemax",
+  },
+  {
+    id: "m8",
+    name: "Fractional RF",
+    maker: "InMode Morpheus8",
+    fact: "Coated needles place radiofrequency under the surface. A series of three, not a single pass.",
+    treatmentId: "morpheus",
+  },
+];
+
+export type Studio = {
+  id: StudioId;
+  short: string;
+  name: string;
+  neighborhood: string;
+  lines: string[];
+  phone: string;
+  phoneHref: string;
+  hours: string;
+  timeZone: string;
+  openDays: number[];
+  openHour: number;
+  closeHour: number;
+  saturdayClose?: number;
+};
+
+export const studios: Studio[] = [
+  {
+    id: "wimpole",
+    short: "Wimpole",
+    name: "Wimpole Rooms",
+    neighborhood: "Marylebone",
+    lines: ["Upper Wimpole Street", "Marylebone, London W1G"],
+    phone: "020 7946 0184",
+    phoneHref: "tel:+442079460184",
+    hours: "Tue–Fri 09:00–18:00 · Sat 09:00–14:00",
+    timeZone: "Europe/London",
+    openDays: [2, 3, 4, 5, 6],
+    openHour: 9,
+    closeHour: 18,
+    saturdayClose: 14,
+  },
+  {
+    id: "elystan",
+    short: "Elystan",
+    name: "Elystan Rooms",
+    neighborhood: "Chelsea",
+    lines: ["Elystan Street", "Chelsea, London SW3"],
+    phone: "020 7946 0291",
+    phoneHref: "tel:+442079460291",
+    hours: "Wed–Sat 10:00–18:00",
+    timeZone: "Europe/London",
+    openDays: [3, 4, 5, 6],
+    openHour: 10,
+    closeHour: 18,
+  },
+];
+
+export const clinicians = [
+  {
+    name: "Dr Amira Shah",
+    role: "Medical director",
+    credential: "MBBS, MRCP. Consultant dermatologist",
+    focus: "Neuromodulators, hyaluronic acid, and skin-quality injectables.",
+    monogram: "AS",
+  },
+  {
+    name: "Mr Callum Adeyemi",
+    role: "Face & energy",
+    credential: "MBBS, FRCS (Plast). Consultant plastic surgeon",
+    focus: "Ultrasound, broadband light, and fractional radiofrequency.",
+    monogram: "CA",
+  },
+  {
+    name: "Priya Raman, RN",
+    role: "Skin health",
+    credential: "Independent nurse prescriber",
+    focus: "HydraFacial, pretreatment skin, and aftercare.",
+    monogram: "PR",
+  },
+];
+
+export const faqs: { q: string; a: string }[] = [
+  {
+    q: "Are toxin units interchangeable?",
+    a: "No. Botox, Bocouture, and Letybo are dosed for the frown at 20 units. Azzalure and Alluzience use 50 Speywood units, which are a different currency. A lower price per unit can still be a similar visit total. None of these brands convert on the label.",
+  },
+  {
+    q: "Why are prescription medicines listed on a public page?",
+    a: "In the UK, botulinum toxin is a prescription-only medicine. Regulation 284 of the Human Medicines Regulations 2012 prohibits advertising it to the public, including brand names and prices. A real clinic website would keep that behind a consultation. This page is a sample catalogue, so the names are here for education, not as an offer to supply.",
+  },
+  {
+    q: "What if I have an event?",
+    a: "Neuromodulators are socially quiet the same day and should be judged at two weeks — do not book them three days before a wedding. Hyaluronic acid can bruise and swell for up to a week, longer in lips and under the eyes. Belkyra swelling is obvious. Sofwave and HydraFacial are the realistic “this week” options.",
+  },
+  {
+    q: "Do you treat during pregnancy or while breastfeeding?",
+    a: "No. Neuromodulators, fillers, deoxycholic acid, and energy devices wait. HydraFacial is a conversation, not an automatic yes. Come back when you are done; the face will still be there.",
+  },
+  {
+    q: "How is pain handled?",
+    a: "Topical anaesthetic, ice, vibration, and time. Most Juvéderm, Restylane, and Teoxane gels used in the UK contain lidocaine. Volite does too. None of that makes a lip treatment silent.",
+  },
+  {
+    q: "Can filler be removed?",
+    a: "Hyaluronic acid — Juvéderm, Restylane, RHA, Volite — can be dissolved with hyaluronidase. Sculptra, Radiesse, Belkyra, and every energy device on this menu cannot. That difference is the whole conversation before a non-HA product.",
+  },
+  {
+    q: "Do you take loyalty points or finance?",
+    a: "Manufacturer schemes, when one actually applies in the UK, are mentioned at the consult rather than used as a reason to treat. Staged payments discussed at a real desk include clinic plans and regulated credit. Points and credit do not change the medical plan. Sample prices on this page include VAT.",
+  },
+  {
+    q: "Is this medical advice, and is this a real clinic?",
+    a: "No, and no. Aesthetics Planet is a sample website. Product notes follow public UK licensing and typical London private practice as of 2026. They are not a prescription, a quote, or a promise about your face. The clinicians are fictional and are not GMC or NMC registrants. The 020 7946 numbers are Ofcom’s drama range. Trademarks belong to their owners.",
+  },
+];
+
+export function formatMoney(n: number) {
+  return new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+    maximumFractionDigits: 0,
+  }).format(n);
+}
+
+export function treatmentById(id: string) {
+  return treatments.find((t) => t.id === id);
+}
+
+export function studioById(id: StudioId) {
+  return studios.find((s) => s.id === id) ?? studios[0];
+}
