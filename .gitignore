@@ -1,0 +1,17 @@
+node_modules
+dist
+.output
+.nitro
+.tanstack
+.vercel
+.grok
+.wrangler
+artifacts
+screenshots
+*.log
+.env
+.env.*
+!.env.example
+.node_modules.lock
+.upload-batches
+
